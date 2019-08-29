@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.lz.web.dal.dao.IfGoodsMapper">
+  <resultMap id="BaseResultMap" type="com.xxx.lz.web.dal.dataobj.IfGoods">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="gName" jdbcType="VARCHAR" property="gname" />
+    <result column="imgs" jdbcType="VARCHAR" property="imgs" />
+    <result column="tpId" jdbcType="INTEGER" property="tpid" />
+    <result column="price" jdbcType="REAL" property="price" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="sotr" jdbcType="INTEGER" property="sotr" />
+    <result column="sales" jdbcType="INTEGER" property="sales" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xxx.lz.web.dal.dataobj.IfGoods">
+    <result column="gInfo" jdbcType="LONGVARCHAR" property="ginfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, gName, imgs, tpId, price, state, sotr, sales
+  </sql>
+  <sql id="Blob_Column_List">
+    gInfo
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.xxx.lz.web.dal.dataobj.IfGoodsExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from if_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfGoodsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from if_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from if_goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from if_goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfGoodsExample">
+    delete from if_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xxx.lz.web.dal.dataobj.IfGoods" useGeneratedKeys="true">
+    insert into if_goods (gName, imgs, tpId, 
+      price, state, sotr, sales, 
+      gInfo)
+    values (#{gname,jdbcType=VARCHAR}, #{imgs,jdbcType=VARCHAR}, #{tpid,jdbcType=INTEGER}, 
+      #{price,jdbcType=REAL}, #{state,jdbcType=INTEGER}, #{sotr,jdbcType=INTEGER}, #{sales,jdbcType=INTEGER}, 
+      #{ginfo,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xxx.lz.web.dal.dataobj.IfGoods" useGeneratedKeys="true">
+    insert into if_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gname != null">
+        gName,
+      </if>
+      <if test="imgs != null">
+        imgs,
+      </if>
+      <if test="tpid != null">
+        tpId,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="sotr != null">
+        sotr,
+      </if>
+      <if test="sales != null">
+        sales,
+      </if>
+      <if test="ginfo != null">
+        gInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gname != null">
+        #{gname,jdbcType=VARCHAR},
+      </if>
+      <if test="imgs != null">
+        #{imgs,jdbcType=VARCHAR},
+      </if>
+      <if test="tpid != null">
+        #{tpid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="sotr != null">
+        #{sotr,jdbcType=INTEGER},
+      </if>
+      <if test="sales != null">
+        #{sales,jdbcType=INTEGER},
+      </if>
+      <if test="ginfo != null">
+        #{ginfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfGoodsExample" resultType="java.lang.Long">
+    select count(*) from if_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update if_goods
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.gname != null">
+        gName = #{record.gname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgs != null">
+        imgs = #{record.imgs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tpid != null">
+        tpId = #{record.tpid,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=REAL},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.sotr != null">
+        sotr = #{record.sotr,jdbcType=INTEGER},
+      </if>
+      <if test="record.sales != null">
+        sales = #{record.sales,jdbcType=INTEGER},
+      </if>
+      <if test="record.ginfo != null">
+        gInfo = #{record.ginfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update if_goods
+    set id = #{record.id,jdbcType=INTEGER},
+      gName = #{record.gname,jdbcType=VARCHAR},
+      imgs = #{record.imgs,jdbcType=VARCHAR},
+      tpId = #{record.tpid,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=REAL},
+      state = #{record.state,jdbcType=INTEGER},
+      sotr = #{record.sotr,jdbcType=INTEGER},
+      sales = #{record.sales,jdbcType=INTEGER},
+      gInfo = #{record.ginfo,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update if_goods
+    set id = #{record.id,jdbcType=INTEGER},
+      gName = #{record.gname,jdbcType=VARCHAR},
+      imgs = #{record.imgs,jdbcType=VARCHAR},
+      tpId = #{record.tpid,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=REAL},
+      state = #{record.state,jdbcType=INTEGER},
+      sotr = #{record.sotr,jdbcType=INTEGER},
+      sales = #{record.sales,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxx.lz.web.dal.dataobj.IfGoods">
+    update if_goods
+    <set>
+      <if test="gname != null">
+        gName = #{gname,jdbcType=VARCHAR},
+      </if>
+      <if test="imgs != null">
+        imgs = #{imgs,jdbcType=VARCHAR},
+      </if>
+      <if test="tpid != null">
+        tpId = #{tpid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="sotr != null">
+        sotr = #{sotr,jdbcType=INTEGER},
+      </if>
+      <if test="sales != null">
+        sales = #{sales,jdbcType=INTEGER},
+      </if>
+      <if test="ginfo != null">
+        gInfo = #{ginfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xxx.lz.web.dal.dataobj.IfGoods">
+    update if_goods
+    set gName = #{gname,jdbcType=VARCHAR},
+      imgs = #{imgs,jdbcType=VARCHAR},
+      tpId = #{tpid,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL},
+      state = #{state,jdbcType=INTEGER},
+      sotr = #{sotr,jdbcType=INTEGER},
+      sales = #{sales,jdbcType=INTEGER},
+      gInfo = #{ginfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xxx.lz.web.dal.dataobj.IfGoods">
+    update if_goods
+    set gName = #{gname,jdbcType=VARCHAR},
+      imgs = #{imgs,jdbcType=VARCHAR},
+      tpId = #{tpid,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL},
+      state = #{state,jdbcType=INTEGER},
+      sotr = #{sotr,jdbcType=INTEGER},
+      sales = #{sales,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
