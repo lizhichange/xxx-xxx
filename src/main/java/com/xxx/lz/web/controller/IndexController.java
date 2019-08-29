@@ -16,5 +16,9 @@ public class IndexController {
         return "chiji/index";
     }
 
+    @GetMapping("/")
+    String render() {
+        return "chiji/index";
+    }
 
 }
