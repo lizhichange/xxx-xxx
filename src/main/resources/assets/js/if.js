@@ -319,31 +319,26 @@ function zongzisub() {
             "type": type,
             "number": number
         };
+
         $.ajax({
             type: "POST",
             url: "../goods/order",
-            data:
-                JSON.stringify(data),
+            data: JSON.stringify(data),
             dataType: 'json',
             contentType: "application/json;charset=utf-8",
-            success: function (data) {
+            success: function (r) {
+                console.log(r);
                 layer.close(ii);
-                if (data === 'fail') {
-                    layer.alert('创建订单失败！' + data.msg);
-                    return false;
+                if (r) {
+                    window.location.href = "../other/submit?" + u;
                 }
-
-                window.location.href = "other/submit.html?" + u;
             },
-            error: function (data) {
+            error: function (r) {
+                console.log(r);
                 layer.close(ii);
-                layer.msg('服务器错误');
-                return false;
+                layer.msg('服务器错误' + r);
             }
-        })
-        //*********************************************
-
-
+        });
     });
 }
 

@@ -1,6 +1,8 @@
 package com.xxx.lz.web.controller;
 
 import com.google.common.collect.Lists;
+import com.xxx.lz.web.model.JsonResult;
+import com.xxx.lz.web.model.JsonResultBuilder;
 import com.xxx.lz.web.dal.dao.IfGoodsMapper;
 import com.xxx.lz.web.dal.dao.IfOrderMapper;
 import com.xxx.lz.web.dal.dataobj.IfGoods;
@@ -10,10 +12,7 @@ import com.xxx.lz.web.param.GoodsParam;
 import com.xxx.lz.web.param.OrderParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -47,8 +46,10 @@ public class GoodsController {
         return ifGoods;
     }
 
-    @PostMapping("/order")
-    String order(@RequestBody OrderParam orderParam) {
+
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    @ResponseBody
+    JsonResult order(@RequestBody OrderParam orderParam) {
         IfOrder order = new IfOrder();
         order.setOutTradeNo(orderParam.getOut_trade_no());
         order.setGid(Integer.valueOf(orderParam.getGid()));
@@ -60,8 +61,8 @@ public class GoodsController {
         order.setNumber(Integer.valueOf(orderParam.getNumber()));
         int i = ifOrderMapper.insertSelective(order);
         if (i > 0) {
-            return "ok";
+            return JsonResultBuilder.succ("ok");
         }
-        return "fail";
+        return JsonResultBuilder.fail("101", "fail");
     }
 }
