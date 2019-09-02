@@ -13,12 +13,12 @@ public class IndexController {
     @GetMapping("/index")
     String index() {
 
-        return "chiji/index";
+        return "redirect:/zongzi/index";
     }
 
     @GetMapping("/")
     String render() {
-        return "chiji/index";
+        return "redirect:/zongzi/index";
     }
 
 }
