@@ -1,118 +1,117 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>正在为您跳转到支付页面，请稍候...</title>
-    <style type="text/css">
-        body {
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>支付宝扫码(BA74425874D79FED)</title>
+    <style>
+        * {
             margin: 0;
             padding: 0;
         }
 
-        p {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 330px;
-            height: 30px;
-            margin: -35px 0 0 -160px;
-            padding: 20px;
-            font: bold 14px/30px "宋体", Arial;
-            background: #f9fafc url(../../assets/load.gif) no-repeat 20px 26px;
-            text-indent: 22px;
-            border: 1px solid #c5d0dc;
+        body {
+            background: url(../assets/image/bg.jpg) repeat;
         }
 
-        #waiting {
-            font-family: Arial;
+        #main {
+            background-color: #fff;
+            padding: 1px;
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 3px;
+            box-shadow: 5px 5px 30px #333;
+        }
+
+        #content {
+            padding: 30px;
+        }
+
+        #title {
+            color: #333;
+            font-size: 14px;
+            background-color: #e8e8e8;
+            border-bottom: 1px solid #ccc;
+            line-height: 60px;
+        }
+
+        #title span {
+            color: #fb180a;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #QRmsg {
+            color: #149696;
+            background-color: #e8e8e8;
+            border-top: 1px solid #ccc;
+            line-height: 28px;
+            padding: 20px 0;
+            font-size: 16px;
+        }
+
+        .qr_default {
+            background: url(../assets/image//icon_pay.png) no-repeat 150px -63px;
+        }
+
+        .qr_succ, .pay_succ {
+            background: url(../assets/image//icon_pay.png) no-repeat 150px -3px;
+        }
+
+        .pay_error {
+            background: url(../assets/image//icon_pay.png) no-repeat 150px -120px;
+        }
+
+        #msgContent p {
+            text-align: left;
+            padding-left: 220px;
+        }
+
+        #msgContent p a {
+            color: #149696;
+            font-weight: bold;
         }
     </style>
-    <script>
-
-        function open_without_referrer(link) {
-            document.body.appendChild(document.createElement('iframe')).src = 'javascript:"&lt;script>top.location.replace(\'' + link + '\')<\/script>"';
-        }
-    </script>
-
-
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
 </head>
 
 <body>
+<div id="main">
+    <div id="title">订单号：<span id="orderid"> [[${orderId}]] </span>&nbsp;&nbsp;&nbsp;&nbsp;金额：<span> [[${amount}]] </span> 元</div>
+    <div id="content">
+        <div id="QRimg">
+
+            <img    th:src="@{'http://qr.liantu.com/api.php?text='+${rasContent.qr_code} }"    style="width: 220px;"/>
+
+        </div>
+
+    </div>
+    <div id="QRmsg">
+        <div id="msgContent" class="qr_default">
+            <p>请使用支付宝<br>扫描二维码</p>
+        </div>
+    </div>
+</div>
 
 
-
-
-
-<?php
-
-
-
-
-
-$type=isset($_GET['type'])?$_GET['type']:exit('No type!');
-
-if(isset($_SERVER['HTTP_REFERER'])){
-    if(strpos($_SERVER['HTTP_REFERER'], "http://".$_SERVER['HTTP_HOST']."/")==0){
-    }else{
-        exit();
-    }
-}else{
-    exit();
-}
-if($conf['payapi'] == 5){
-	$name = isset($_GET['name'])?$_GET['name']:exit('No name!');
-	$money = isset($_GET['money'])?$_GET['money']:exit('No money!');
-	$number = isset($_GET['number'])?$_GET['number']:exit('No number!');
-	$out_trade_no = isset($_GET['out_trade_no'])?$_GET['out_trade_no']:exit('No out_trade_no!');
-	$gid = isset($_GET['gid'])?$_GET['gid']:exit('No gid!');
-	$url = "./msubmit.php?out_trade_no=".$out_trade_no."&money=".$money."&type=".$type;
-	exit("<script language='javascript'>window.location.href='".$url."';</script>");
-
-}elseif($conf['payapi'] == 3){
-    $payapi='http://fpay.blypay.cn/';
-}elseif($conf['payapi'] == 10){
-    $payapi='http://pay.ivzfpt.com/';
-}
-if($type=='alipay' || $type=='tenpay' || $type=='qqpay' || $type=='wxpay'){
-    require_once(SYSTEM_ROOT_E."epay/epay.config.php");
-    require_once(SYSTEM_ROOT_E."epay/epay_submit.class.php");
-    empty($_COOKIE['auth'])?exit():null;
-    $or = $_GET['out_trade_no'];
-    //防止修改价格
-    $sql = "SELECT * FROM if_order WHERE out_trade_no='{$or}' limit 1";
-    $row = $DB->get_row($sql);
-    if(!row || $row['money'] != $_GET['money']){
-        exit("验证失败1");
-    }
-    $number = $_REQUEST['number'];
-    $sql = "select * from  if_goods where id = ". $_GET['gid'];
-    $row = $DB->get_row($sql);
-    if(!row || ($row['price']*$number) != $_GET['money']){
-        exit("验证失败2");
-    }
-    $parameter = array(
-        "pid" => $conf['epay_id'],//商户ID
-        "type" => $_GET['type'],//支付类型
-        "notify_url"	=>"http://".$_SERVER['HTTP_HOST'].'/other/epay_notify.php',//异步通知
-        "return_url"	=> "http://".$_SERVER['HTTP_HOST'].'/other/epay_return.php',//回调
-        "out_trade_no"	=> $_GET['out_trade_no'],//订单编号
-        "name"	=> $_GET['name'],//商品名称
-        "money"	=> $_GET['money'],//金额
-        "sitename"	=> $conf['title']//网站名称
-);
-    //建立请求
-
-    $alipaySubmit = new AlipaySubmit($alipay_config);
-    $html_text = $alipaySubmit->buildRequestForm($parameter,"POST", "正在验证订单并跳转...");
-    echo $html_text;
-
-
-}else{
-    echo "错误";
-}
-
-    ?>
-<p>正在为您跳转到支付页面，请稍候...</p>
+<script>
+    function p(id) {
+        $.ajax({
+            url: '../../pay/weixin_bank/order_status.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {orderid: id},
+            success: function (data) {
+                if (parseInt(data.status) === 1) {
+                    window.location.href = "http://api.zolpay.cn/orderquery.htm?orderid=" + id;
+                }
+            }
+        });
+    };
+    $(function () {
+        setInterval("p('BA74425874D79FED')", 5000);
+    });
+</script>
 </body>
 </html>
