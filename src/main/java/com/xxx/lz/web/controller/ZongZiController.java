@@ -34,9 +34,13 @@ public class ZongZiController {
     @Autowired
     private IfConfigMapper ifConfigMapper;
 
+    @GetMapping("/mobile")
+    String mobile(ModelMap modelMap) {
+        xxx(modelMap);
+        return "zongzi/mobile";
+    }
 
-    @GetMapping("/index")
-    String index(ModelMap modelMap) {
+    private void xxx(ModelMap modelMap) {
         List<IfType> typeList = ifTypeMapper.selectByExample(new IfTypeExample());
         modelMap.addAttribute("typeList", typeList);
 
@@ -49,6 +53,12 @@ public class ZongZiController {
                 modelMap.addAttribute(ifConfig.getIfK(), ifConfig.getIfV());
             }
         }
+    }
+
+
+    @GetMapping("/index")
+    String index(ModelMap modelMap) {
+        xxx(modelMap);
         return "zongzi/index";
     }
 
