@@ -65,12 +65,13 @@ public class PayController {
         long l = System.currentTimeMillis();
         AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", APP_ID, APP_PRIVATE_KEY,
                 "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2"); //获得初始化的AlipayClient
-
+        String timeout_express = "200m";
         AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();//创建API对应的request类
         request.setBizContent("{" +
                 "    \"out_trade_no\":\"" + out_trade_no + "\"," +//商户订单号
                 "    \"total_amount\":\"" + money + "\"," +
                 "    \"subject\":\"" + name + "\"," +
+                "    \"timeout_express\":\"" + timeout_express + "\"," +
                 "    \"store_id\":\"NJ_001\"}");//订单允许的最晚付款时间
 
         AlipayTradePrecreateResponse response;
