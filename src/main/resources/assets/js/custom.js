@@ -1,4 +1,3 @@
-
 /* ----------------------------- 
 Backgroung slider
 ----------------------------- */
@@ -14,72 +13,67 @@ Backgroung slider
 });
 */
 
-				
 
 /* ----------------------------- 
 Scroll into viewPort Animation
 ----------------------------- */
-$(document).ready(function() {	
-	'use strict';
-	$('.animated').appear(function() {
-		var element = $(this),
-			animation = element.data('animation'),
-			animationDelay = element.data('animation-delay');
-			if ( animationDelay ) {
+$(document).ready(function () {
+    'use strict';
+    $('.animated').appear(function () {
+        var element = $(this),
+            animation = element.data('animation'),
+            animationDelay = element.data('animation-delay');
+        if (animationDelay) {
 
-				setTimeout(function(){
-					element.addClass( animation + " visible");
-				}, animationDelay);
+            setTimeout(function () {
+                element.addClass(animation + " visible");
+            }, animationDelay);
 
-			} else {
-				element.addClass( animation + " visible");
-			}
-	});
+        } else {
+            element.addClass(animation + " visible");
+        }
+    });
 });
-	
-
 
 
 /* ----------------------------- 
 IE 9 Placeholder fix
 ----------------------------- */
-$('[placeholder]').focus(function() {
-  var input = $(this);
-  if (input.val() == input.attr('placeholder')) {
-    input.val('');
-    input.removeClass('placeholder');
-  }
-}).blur(function() {
-  var input = $(this);
-  if (input.val() == '' || input.val() == input.attr('placeholder')) {
-    input.addClass('placeholder');
-    input.val(input.attr('placeholder'));
-  }
+$('[placeholder]').focus(function () {
+    var input = $(this);
+    if (input.val() == input.attr('placeholder')) {
+        input.val('');
+        input.removeClass('placeholder');
+    }
+}).blur(function () {
+    var input = $(this);
+    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+        input.addClass('placeholder');
+        input.val(input.attr('placeholder'));
+    }
 }).blur();
 
 
-				
 /* ----------------------------- 
 Main navigation
 ----------------------------- */
-$(document).ready(function() {
-	'use strict';
-	$('.nav').onePageNav({
-		currentClass: 'current',
-		scrollSpeed: 1000,
-		easing: 'easeInOutQuint'
-	});
-	$(window).bind('scroll', function(e) {
-		var scrollPos = $(window).scrollTop();
-		scrollPos > 220 ? $('.sticky-section').addClass('nav-bg') : $('.sticky-section').removeClass('nav-bg');
-	});
-});				
+$(document).ready(function () {
+    'use strict';
+    $('.nav').onePageNav({
+        currentClass: 'current',
+        scrollSpeed: 1000,
+        easing: 'easeInOutQuint'
+    });
+    $(window).bind('scroll', function (e) {
+        var scrollPos = $(window).scrollTop();
+        scrollPos > 220 ? $('.sticky-section').addClass('nav-bg') : $('.sticky-section').removeClass('nav-bg');
+    });
+});
 
-			
 
 /* ----------------------------- 
 Contact form
------------------------------ */			
+----------------------------- */
 /*$(document).ready(function() {
 	'use strict';
 	$('form.contact-form').on('submit', function(e) {

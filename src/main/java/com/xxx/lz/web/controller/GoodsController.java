@@ -1,13 +1,13 @@
 package com.xxx.lz.web.controller;
 
 import com.google.common.collect.Lists;
-import com.xxx.lz.web.model.JsonResult;
-import com.xxx.lz.web.model.JsonResultBuilder;
 import com.xxx.lz.web.dal.dao.IfGoodsMapper;
 import com.xxx.lz.web.dal.dao.IfOrderMapper;
 import com.xxx.lz.web.dal.dataobj.IfGoods;
 import com.xxx.lz.web.dal.dataobj.IfGoodsExample;
 import com.xxx.lz.web.dal.dataobj.IfOrder;
+import com.xxx.lz.web.model.JsonResult;
+import com.xxx.lz.web.model.JsonResultBuilder;
 import com.xxx.lz.web.param.GoodsParam;
 import com.xxx.lz.web.param.OrderParam;
 import org.springframework.beans.factory.annotation.Autowired;

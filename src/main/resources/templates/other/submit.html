@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>支付宝扫码(BA74425874D79FED)</title>
     <style>
         * {
@@ -73,22 +73,24 @@
             font-weight: bold;
         }
     </style>
-    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
 </head>
 
 <body>
 <div id="main">
-    <div id="title">订单号：<span id="orderid"> [[${orderId}]] </span>&nbsp;&nbsp;&nbsp;&nbsp;金额：<span> [[${amount}]] </span> 元</div>
+    <div id="title">订单号：<span
+            id="orderid"> [[${orderId}]] </span>&nbsp;&nbsp;&nbsp;&nbsp;金额：<span> [[${amount}]] </span> 元
+    </div>
     <div id="content">
         <div id="QRimg">
 
-            <img    th:src="@{'http://qr.liantu.com/api.php?text='+${rasContent.qr_code} }"    style="width: 220px;"/>
+            <img style="width: 220px;" th:src="@{'http://qr.liantu.com/api.php?text='+${rasContent.qr_code} }"/>
 
         </div>
 
     </div>
     <div id="QRmsg">
-        <div id="msgContent" class="qr_default">
+        <div class="qr_default" id="msgContent">
             <p>请使用支付宝<br>扫描二维码</p>
         </div>
     </div>
@@ -110,7 +112,7 @@
         });
     };
     $(function () {
-      //  setInterval("p('BA74425874D79FED')", 5000);
+        //  setInterval("p('BA74425874D79FED')", 5000);
     });
 </script>
 </body>

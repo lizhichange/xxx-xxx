@@ -1,43 +1,32 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 public class IfType implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * if_type.id
-    
+     * if_type.id
      *
      * @mbg.generated 2019-08-27 17:25:06
      */
     private Integer id;
-
     /**
-    *
-    *
-    * if_type.tName
-    
+     * if_type.tName
      *
      * @mbg.generated 2019-08-27 17:25:06
      */
     private String tname;
-
     /**
-    *
-    *
-    * if_type.state
-    
+     * if_type.state
      *
      * @mbg.generated 2019-08-27 17:25:06
      */
     private Integer state;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

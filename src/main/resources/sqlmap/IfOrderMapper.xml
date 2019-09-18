@@ -1,121 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxx.lz.web.dal.dao.IfOrderMapper">
-  <resultMap id="BaseResultMap" type="com.xxx.lz.web.dal.dataobj.IfOrder">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />
-    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
-    <result column="gid" jdbcType="INTEGER" property="gid" />
-    <result column="money" jdbcType="REAL" property="money" />
-    <result column="rel" jdbcType="VARCHAR" property="rel" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="benTime" jdbcType="TIMESTAMP" property="bentime" />
-    <result column="endTime" jdbcType="TIMESTAMP" property="endtime" />
-    <result column="number" jdbcType="INTEGER" property="number" />
-    <result column="sta" jdbcType="INTEGER" property="sta" />
-    <result column="sendE" jdbcType="INTEGER" property="sende" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="com.xxx.lz.web.dal.dataobj.IfOrder">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo"/>
+        <result column="trade_no" jdbcType="VARCHAR" property="tradeNo"/>
+        <result column="gid" jdbcType="INTEGER" property="gid"/>
+        <result column="money" jdbcType="REAL" property="money"/>
+        <result column="rel" jdbcType="VARCHAR" property="rel"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="benTime" jdbcType="TIMESTAMP" property="bentime"/>
+        <result column="endTime" jdbcType="TIMESTAMP" property="endtime"/>
+        <result column="number" jdbcType="INTEGER" property="number"/>
+        <result column="sta" jdbcType="INTEGER" property="sta"/>
+        <result column="sendE" jdbcType="INTEGER" property="sende"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
     id, out_trade_no, trade_no, gid, money, rel, type, benTime, endTime, number, sta, 
     sendE
   </sql>
-  <select id="selectByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfOrderExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from if_order
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-    <if test="limit != null">
-      <if test="offset != null">
-        limit ${offset}, ${limit}
-      </if>
-      <if test="offset == null">
-        limit ${limit}
-      </if>
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from if_order
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfOrderExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from if_order
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="limit != null">
+            <if test="offset != null">
+                limit ${offset}, ${limit}
+            </if>
+            <if test="offset == null">
+                limit ${limit}
+            </if>
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from if_order
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from if_order
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfOrderExample">
-    delete from if_order
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder" useGeneratedKeys="true">
+    <delete id="deleteByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfOrderExample">
+        delete from if_order
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder"
+            useGeneratedKeys="true">
     insert into if_order (out_trade_no, trade_no, gid, 
       money, rel, type, benTime, 
       endTime, number, sta, 
@@ -125,187 +128,188 @@
       #{endtime,jdbcType=TIMESTAMP}, #{number,jdbcType=INTEGER}, #{sta,jdbcType=INTEGER}, 
       #{sende,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder" useGeneratedKeys="true">
-    insert into if_order
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="outTradeNo != null">
-        out_trade_no,
-      </if>
-      <if test="tradeNo != null">
-        trade_no,
-      </if>
-      <if test="gid != null">
-        gid,
-      </if>
-      <if test="money != null">
-        money,
-      </if>
-      <if test="rel != null">
-        rel,
-      </if>
-      <if test="type != null">
-        type,
-      </if>
-      <if test="bentime != null">
-        benTime,
-      </if>
-      <if test="endtime != null">
-        endTime,
-      </if>
-      <if test="number != null">
-        number,
-      </if>
-      <if test="sta != null">
-        sta,
-      </if>
-      <if test="sende != null">
-        sendE,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="outTradeNo != null">
-        #{outTradeNo,jdbcType=VARCHAR},
-      </if>
-      <if test="tradeNo != null">
-        #{tradeNo,jdbcType=VARCHAR},
-      </if>
-      <if test="gid != null">
-        #{gid,jdbcType=INTEGER},
-      </if>
-      <if test="money != null">
-        #{money,jdbcType=REAL},
-      </if>
-      <if test="rel != null">
-        #{rel,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="bentime != null">
-        #{bentime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endtime != null">
-        #{endtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="number != null">
-        #{number,jdbcType=INTEGER},
-      </if>
-      <if test="sta != null">
-        #{sta,jdbcType=INTEGER},
-      </if>
-      <if test="sende != null">
-        #{sende,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfOrderExample" resultType="java.lang.Long">
-    select count(*) from if_order
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update if_order
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.outTradeNo != null">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder"
+            useGeneratedKeys="true">
+        insert into if_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="outTradeNo != null">
+                out_trade_no,
+            </if>
+            <if test="tradeNo != null">
+                trade_no,
+            </if>
+            <if test="gid != null">
+                gid,
+            </if>
+            <if test="money != null">
+                money,
+            </if>
+            <if test="rel != null">
+                rel,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="bentime != null">
+                benTime,
+            </if>
+            <if test="endtime != null">
+                endTime,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="sta != null">
+                sta,
+            </if>
+            <if test="sende != null">
+                sendE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="outTradeNo != null">
+                #{outTradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tradeNo != null">
+                #{tradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="gid != null">
+                #{gid,jdbcType=INTEGER},
+            </if>
+            <if test="money != null">
+                #{money,jdbcType=REAL},
+            </if>
+            <if test="rel != null">
+                #{rel,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="bentime != null">
+                #{bentime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endtime != null">
+                #{endtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="sta != null">
+                #{sta,jdbcType=INTEGER},
+            </if>
+            <if test="sende != null">
+                #{sende,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.xxx.lz.web.dal.dataobj.IfOrderExample" resultType="java.lang.Long">
+        select count(*) from if_order
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update if_order
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.outTradeNo != null">
+                out_trade_no = #{record.outTradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.tradeNo != null">
+                trade_no = #{record.tradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="record.gid != null">
+                gid = #{record.gid,jdbcType=INTEGER},
+            </if>
+            <if test="record.money != null">
+                money = #{record.money,jdbcType=REAL},
+            </if>
+            <if test="record.rel != null">
+                rel = #{record.rel,jdbcType=VARCHAR},
+            </if>
+            <if test="record.type != null">
+                type = #{record.type,jdbcType=VARCHAR},
+            </if>
+            <if test="record.bentime != null">
+                benTime = #{record.bentime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.endtime != null">
+                endTime = #{record.endtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.number != null">
+                number = #{record.number,jdbcType=INTEGER},
+            </if>
+            <if test="record.sta != null">
+                sta = #{record.sta,jdbcType=INTEGER},
+            </if>
+            <if test="record.sende != null">
+                sendE = #{record.sende,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update if_order
+        set id = #{record.id,jdbcType=INTEGER},
         out_trade_no = #{record.outTradeNo,jdbcType=VARCHAR},
-      </if>
-      <if test="record.tradeNo != null">
         trade_no = #{record.tradeNo,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gid != null">
         gid = #{record.gid,jdbcType=INTEGER},
-      </if>
-      <if test="record.money != null">
         money = #{record.money,jdbcType=REAL},
-      </if>
-      <if test="record.rel != null">
         rel = #{record.rel,jdbcType=VARCHAR},
-      </if>
-      <if test="record.type != null">
         type = #{record.type,jdbcType=VARCHAR},
-      </if>
-      <if test="record.bentime != null">
         benTime = #{record.bentime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.endtime != null">
         endTime = #{record.endtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.number != null">
         number = #{record.number,jdbcType=INTEGER},
-      </if>
-      <if test="record.sta != null">
         sta = #{record.sta,jdbcType=INTEGER},
-      </if>
-      <if test="record.sende != null">
-        sendE = #{record.sende,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update if_order
-    set id = #{record.id,jdbcType=INTEGER},
-      out_trade_no = #{record.outTradeNo,jdbcType=VARCHAR},
-      trade_no = #{record.tradeNo,jdbcType=VARCHAR},
-      gid = #{record.gid,jdbcType=INTEGER},
-      money = #{record.money,jdbcType=REAL},
-      rel = #{record.rel,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=VARCHAR},
-      benTime = #{record.bentime,jdbcType=TIMESTAMP},
-      endTime = #{record.endtime,jdbcType=TIMESTAMP},
-      number = #{record.number,jdbcType=INTEGER},
-      sta = #{record.sta,jdbcType=INTEGER},
-      sendE = #{record.sende,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder">
-    update if_order
-    <set>
-      <if test="outTradeNo != null">
-        out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
-      </if>
-      <if test="tradeNo != null">
-        trade_no = #{tradeNo,jdbcType=VARCHAR},
-      </if>
-      <if test="gid != null">
-        gid = #{gid,jdbcType=INTEGER},
-      </if>
-      <if test="money != null">
-        money = #{money,jdbcType=REAL},
-      </if>
-      <if test="rel != null">
-        rel = #{rel,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        type = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="bentime != null">
-        benTime = #{bentime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endtime != null">
-        endTime = #{endtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="number != null">
-        number = #{number,jdbcType=INTEGER},
-      </if>
-      <if test="sta != null">
-        sta = #{sta,jdbcType=INTEGER},
-      </if>
-      <if test="sende != null">
-        sendE = #{sende,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder">
+        sendE = #{record.sende,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder">
+        update if_order
+        <set>
+            <if test="outTradeNo != null">
+                out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tradeNo != null">
+                trade_no = #{tradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="gid != null">
+                gid = #{gid,jdbcType=INTEGER},
+            </if>
+            <if test="money != null">
+                money = #{money,jdbcType=REAL},
+            </if>
+            <if test="rel != null">
+                rel = #{rel,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="bentime != null">
+                benTime = #{bentime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endtime != null">
+                endTime = #{endtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="sta != null">
+                sta = #{sta,jdbcType=INTEGER},
+            </if>
+            <if test="sende != null">
+                sendE = #{sende,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xxx.lz.web.dal.dataobj.IfOrder">
     update if_order
     set out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
       trade_no = #{tradeNo,jdbcType=VARCHAR},

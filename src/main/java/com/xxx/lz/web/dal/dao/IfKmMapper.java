@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.IfKm;
 import com.xxx.lz.web.dal.dataobj.IfKmExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface IfKmMapper {
     long countByExample(IfKmExample example);

@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.UserDetail;
 import com.xxx.lz.web.dal.dataobj.UserDetailExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserDetailMapper {
     long countByExample(UserDetailExample example);

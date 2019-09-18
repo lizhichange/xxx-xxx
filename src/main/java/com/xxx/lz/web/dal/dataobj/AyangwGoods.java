@@ -1,103 +1,69 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 public class AyangwGoods implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * ayangw_goods.id
-    
+     * ayangw_goods.id
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private Integer id;
-
     /**
-    *
-    *
-    * ayangw_goods.gName
-    
+     * ayangw_goods.gName
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private String gname;
-
     /**
-    *
-    *
-    * ayangw_goods.imgs
-    
+     * ayangw_goods.imgs
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private String imgs;
-
     /**
-    *
-    *
-    * ayangw_goods.tpId
+     * ayangw_goods.tpId
      * Ã¦â€°â‚¬Ã¥Â±Å¾Ã¥Ë†â€ Ã§Â±Â»
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private Integer tpid;
-
     /**
-    *
-    *
-    * ayangw_goods.price
-    
+     * ayangw_goods.price
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private Float price;
-
     /**
-    *
-    *
-    * ayangw_goods.state
-    
+     * ayangw_goods.state
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private Integer state;
-
     /**
-    *
-    *
-    * ayangw_goods.sotr
-    
+     * ayangw_goods.sotr
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private Integer sotr;
-
     /**
-    *
-    *
-    * ayangw_goods.sales
-    
+     * ayangw_goods.sales
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private Integer sales;
-
     /**
-    *
-    *
-    * ayangw_goods.gInfo
-    
+     * ayangw_goods.gInfo
      *
      * @mbg.generated 2019-08-27 17:23:55
      */
     private String ginfo;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

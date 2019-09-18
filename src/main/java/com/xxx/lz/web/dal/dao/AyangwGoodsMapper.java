@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.AyangwGoods;
 import com.xxx.lz.web.dal.dataobj.AyangwGoodsExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AyangwGoodsMapper {
     long countByExample(AyangwGoodsExample example);

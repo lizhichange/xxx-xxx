@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.AyangwOrder;
 import com.xxx.lz.web.dal.dataobj.AyangwOrderExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AyangwOrderMapper {
     long countByExample(AyangwOrderExample example);

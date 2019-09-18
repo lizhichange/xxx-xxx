@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.AyangwSyslog;
 import com.xxx.lz.web.dal.dataobj.AyangwSyslogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AyangwSyslogMapper {
     long countByExample(AyangwSyslogExample example);

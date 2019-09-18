@@ -1,139 +1,91 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.util.Date;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 @AllArgsConstructor
 @NoArgsConstructor
 public class IfOrder implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * if_order.id
-    
+     * if_order.id
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Integer id;
-
     /**
-    *
-    *
-    * if_order.out_trade_no
-    
+     * if_order.out_trade_no
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private String outTradeNo;
-
     /**
-    *
-    *
-    * if_order.trade_no
-    
+     * if_order.trade_no
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private String tradeNo;
-
     /**
-    *
-    *
-    * if_order.gid
-    
+     * if_order.gid
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Integer gid;
-
     /**
-    *
-    *
-    * if_order.money
-    
+     * if_order.money
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Float money;
-
     /**
-    *
-    *
-    * if_order.rel
-    
+     * if_order.rel
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private String rel;
-
     /**
-    *
-    *
-    * if_order.type
-    
+     * if_order.type
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private String type;
-
     /**
-    *
-    *
-    * if_order.benTime
-    
+     * if_order.benTime
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Date bentime;
-
     /**
-    *
-    *
-    * if_order.endTime
-    
+     * if_order.endTime
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Date endtime;
-
     /**
-    *
-    *
-    * if_order.number
-    
+     * if_order.number
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Integer number;
-
     /**
-    *
-    *
-    * if_order.sta
-    
+     * if_order.sta
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Integer sta;
-
     /**
-    *
-    *
-    * if_order.sendE
-    
+     * if_order.sendE
      *
      * @mbg.generated 2019-08-27 17:24:54
      */
     private Integer sende;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

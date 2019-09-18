@@ -38,8 +38,6 @@
     </appender>
 
 
-
-
     <appender name="order-fans-detail-biz" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/order-fans-detail-biz.log</file>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -57,11 +55,8 @@
     </appender>
 
 
-
-
-
     <!-- 业务日志 -->
-    <logger name="ORDER-FANS-DETAIL-BIZ"  level="INFO"  additivity="true">
+    <logger name="ORDER-FANS-DETAIL-BIZ" level="INFO" additivity="true">
         <appender-ref ref="order-fans-detail-biz"/>
     </logger>
 

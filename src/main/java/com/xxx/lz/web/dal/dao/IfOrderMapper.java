@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.IfOrder;
 import com.xxx.lz.web.dal.dataobj.IfOrderExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface IfOrderMapper {
     long countByExample(IfOrderExample example);

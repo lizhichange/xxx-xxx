@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.IfType;
 import com.xxx.lz.web.dal.dataobj.IfTypeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface IfTypeMapper {
     long countByExample(IfTypeExample example);

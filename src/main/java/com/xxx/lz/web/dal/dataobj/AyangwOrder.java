@@ -1,134 +1,87 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 public class AyangwOrder implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * ayangw_order.id
-    
+     * ayangw_order.id
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Integer id;
-
     /**
-    *
-    *
-    * ayangw_order.out_trade_no
-    
+     * ayangw_order.out_trade_no
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private String outTradeNo;
-
     /**
-    *
-    *
-    * ayangw_order.trade_no
-    
+     * ayangw_order.trade_no
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private String tradeNo;
-
     /**
-    *
-    *
-    * ayangw_order.gid
-    
+     * ayangw_order.gid
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Integer gid;
-
     /**
-    *
-    *
-    * ayangw_order.money
-    
+     * ayangw_order.money
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Float money;
-
     /**
-    *
-    *
-    * ayangw_order.rel
-    
+     * ayangw_order.rel
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private String rel;
-
     /**
-    *
-    *
-    * ayangw_order.type
-    
+     * ayangw_order.type
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private String type;
-
     /**
-    *
-    *
-    * ayangw_order.benTime
-    
+     * ayangw_order.benTime
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Date bentime;
-
     /**
-    *
-    *
-    * ayangw_order.endTime
-    
+     * ayangw_order.endTime
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Date endtime;
-
     /**
-    *
-    *
-    * ayangw_order.number
-    
+     * ayangw_order.number
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Integer number;
-
     /**
-    *
-    *
-    * ayangw_order.sta
-    
+     * ayangw_order.sta
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Integer sta;
-
     /**
-    *
-    *
-    * ayangw_order.sendE
-    
+     * ayangw_order.sendE
      *
      * @mbg.generated 2019-08-27 17:24:15
      */
     private Integer sende;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

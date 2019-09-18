@@ -18,11 +18,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableScheduling
 @MapperScan(basePackages = {"com.xxx.lz.web.dal.dao"})
 @EnableTransactionManagement
-public class WebApplication  extends WebMvcConfigurerAdapter  {
+public class WebApplication extends WebMvcConfigurerAdapter {
 
 
-
-
+    public static void main(String[] args) {
+        SpringApplication.run(WebApplication.class, args);
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -30,9 +31,6 @@ public class WebApplication  extends WebMvcConfigurerAdapter  {
         registry.addResourceHandler("/zongzi/**").addResourceLocations("classpath:/zongzi/");
         registry.addResourceHandler("/other/**").addResourceLocations("classpath:/other/");
         super.addResourceHandlers(registry);
-    }
-    public static void main(String[] args) {
-        SpringApplication.run(WebApplication.class, args);
     }
 
 }

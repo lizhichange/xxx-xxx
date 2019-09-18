@@ -1,104 +1,69 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 public class AyangwKm implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * ayangw_km.id
-    
+     * ayangw_km.id
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private Integer id;
-
     /**
-    *
-    *
-    * ayangw_km.gid
-    
+     * ayangw_km.gid
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private Integer gid;
-
     /**
-    *
-    *
-    * ayangw_km.km
-    
+     * ayangw_km.km
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private String km;
-
     /**
-    *
-    *
-    * ayangw_km.benTime
-    
+     * ayangw_km.benTime
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private Date bentime;
-
     /**
-    *
-    *
-    * ayangw_km.endTime
-    
+     * ayangw_km.endTime
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private Date endtime;
-
     /**
-    *
-    *
-    * ayangw_km.out_trade_no
-    
+     * ayangw_km.out_trade_no
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private String outTradeNo;
-
     /**
-    *
-    *
-    * ayangw_km.trade_no
-    
+     * ayangw_km.trade_no
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private String tradeNo;
-
     /**
-    *
-    *
-    * ayangw_km.rel
-    
+     * ayangw_km.rel
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private String rel;
-
     /**
-    *
-    *
-    * ayangw_km.stat
-    
+     * ayangw_km.stat
      *
      * @mbg.generated 2019-08-27 17:24:05
      */
     private Integer stat;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

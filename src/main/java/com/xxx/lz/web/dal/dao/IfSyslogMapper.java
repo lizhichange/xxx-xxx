@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.IfSyslog;
 import com.xxx.lz.web.dal.dataobj.IfSyslogExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface IfSyslogMapper {
     long countByExample(IfSyslogExample example);

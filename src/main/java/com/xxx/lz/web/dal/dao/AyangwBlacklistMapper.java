@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.AyangwBlacklist;
 import com.xxx.lz.web.dal.dataobj.AyangwBlacklistExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AyangwBlacklistMapper {
     long countByExample(AyangwBlacklistExample example);

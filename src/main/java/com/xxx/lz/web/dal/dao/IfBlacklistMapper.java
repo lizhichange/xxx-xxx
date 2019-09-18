@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.IfBlacklist;
 import com.xxx.lz.web.dal.dataobj.IfBlacklistExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface IfBlacklistMapper {
     long countByExample(IfBlacklistExample example);

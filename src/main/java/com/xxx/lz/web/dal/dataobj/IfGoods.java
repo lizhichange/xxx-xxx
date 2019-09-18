@@ -12,27 +12,25 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class IfGoods implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * if_goods.id
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private Integer id;
-
     /**
      * if_goods.gName
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private String gname;
-
     /**
      * if_goods.imgs
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private String imgs;
-
     /**
      * if_goods.tpId
      * Ã¦â€°â‚¬Ã¥Â±Å¾Ã¥Ë†â€ Ã§Â±Â»
@@ -40,43 +38,36 @@ public class IfGoods implements Serializable {
      * @mbg.generated 2019-08-27 17:24:43
      */
     private Integer tpid;
-
     /**
      * if_goods.price
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private Float price;
-
     /**
      * if_goods.state
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private Integer state;
-
     /**
      * if_goods.sotr
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private Integer sotr;
-
     /**
      * if_goods.sales
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private Integer sales;
-
     /**
      * if_goods.gInfo
      *
      * @mbg.generated 2019-08-27 17:24:43
      */
     private String ginfo;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

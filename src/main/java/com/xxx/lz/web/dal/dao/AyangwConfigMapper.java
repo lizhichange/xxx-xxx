@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.AyangwConfig;
 import com.xxx.lz.web.dal.dataobj.AyangwConfigExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AyangwConfigMapper {
     long countByExample(AyangwConfigExample example);

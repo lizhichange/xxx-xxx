@@ -2,8 +2,9 @@ package com.xxx.lz.web.dal.dao;
 
 import com.xxx.lz.web.dal.dataobj.IfConfig;
 import com.xxx.lz.web.dal.dataobj.IfConfigExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface IfConfigMapper {
     long countByExample(IfConfigExample example);

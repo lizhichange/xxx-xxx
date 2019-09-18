@@ -1,64 +1,45 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 public class AyangwBlacklist implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * ayangw_blacklist.id
-    
+     * ayangw_blacklist.id
      *
      * @mbg.generated 2019-08-27 17:23:36
      */
     private Integer id;
-
     /**
-    *
-    *
-    * ayangw_blacklist.type
-    
+     * ayangw_blacklist.type
      *
      * @mbg.generated 2019-08-27 17:23:36
      */
     private Integer type;
-
     /**
-    *
-    *
-    * ayangw_blacklist.date
-    
+     * ayangw_blacklist.date
      *
      * @mbg.generated 2019-08-27 17:23:36
      */
     private Date date;
-
     /**
-    *
-    *
-    * ayangw_blacklist.data
-    
+     * ayangw_blacklist.data
      *
      * @mbg.generated 2019-08-27 17:23:36
      */
     private String data;
-
     /**
-    *
-    *
-    * ayangw_blacklist.remarks
-    
+     * ayangw_blacklist.remarks
      *
      * @mbg.generated 2019-08-27 17:23:36
      */
     private String remarks;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {

@@ -25,14 +25,13 @@ public class ZongZiController {
 
 
     private final IfTypeMapper ifTypeMapper;
+    @Autowired
+    private IfConfigMapper ifConfigMapper;
 
     @Autowired
     public ZongZiController(IfTypeMapper ifTypeMapper) {
         this.ifTypeMapper = ifTypeMapper;
     }
-
-    @Autowired
-    private IfConfigMapper ifConfigMapper;
 
     @GetMapping("/mobile")
     String mobile(ModelMap modelMap) {

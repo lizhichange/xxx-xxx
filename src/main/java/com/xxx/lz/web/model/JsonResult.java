@@ -3,6 +3,7 @@ package com.xxx.lz.web.model;
 import lombok.ToString;
 
 import java.io.Serializable;
+
 @ToString
 public class JsonResult<T> implements Serializable {
     private static final long serialVersionUID = 6183808108104989362L;

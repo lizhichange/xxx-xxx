@@ -1,33 +1,26 @@
 package com.xxx.lz.web.dal.dataobj;
 
-import java.io.Serializable;
 import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-@Builder(builderMethodName="myBuilder")
+@Builder(builderMethodName = "myBuilder")
 public class IfConfig implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
-    *
-    *
-    * if_config.if_k
-    
+     * if_config.if_k
      *
      * @mbg.generated 2019-08-27 17:24:37
      */
     private String ifK;
-
     /**
-    *
-    *
-    * if_config.if_v
-    
+     * if_config.if_v
      *
      * @mbg.generated 2019-08-27 17:24:37
      */
     private String ifV;
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {
